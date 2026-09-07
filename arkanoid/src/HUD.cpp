@@ -5,16 +5,16 @@
 HUD::HUD(const sf::Font& font) : font_(font) {}
 
 void HUD::draw(sf::RenderWindow& win, int score, int misses) const {
-    auto make = [&](const std::string& s, float x, float y, sf::Color c) {
+    auto make = [&](const std::string& s, float x, sf::Color c) { 
         sf::Text t;
         t.setFont(font_);
-        t.setCharacterSize(18);
+        t.setCharacterSize(HUD_FONT_SIZE);
         t.setFillColor(c);
         t.setString(s);
-        t.setPosition(x, y);
+        t.setPosition(x, HUD_Y);
         win.draw(t);
     };
-    make("Score: " + std::to_string(score),   8.f,              8.f, sf::Color::White);
-    make("Misses: " + std::to_string(misses)  + "/" + std::to_string(MAX_MISSES),
-         (float)WINDOW_W - 160.f, 8.f, sf::Color(255, 100, 100));
+    make("Score: " + std::to_string(score), HUD_SCORE_X, sf::Color::White);
+    make("Misses: " + std::to_string(misses) + "/" + std::to_string(MAX_MISSES),
+         (float)WINDOW_W - HUD_MISSES_X, sf::Color(255, 100, 100));
 }
