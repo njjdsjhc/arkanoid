@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "C:/msys64/ucrt64/bin/g++.exe",
+      "args": [
+        "-std=c++17", "-O2",
+        "-Iarkanoid/include",
+        "-IC:/msys64/ucrt64/include",
+        "arkanoid/src/main.cpp",
+        "arkanoid/src/Game.cpp",
+        "arkanoid/src/GameField.cpp",
+        "arkanoid/src/Ball.cpp",
+        "arkanoid/src/Paddle.cpp",
+        "arkanoid/src/Brick.cpp",
+        "arkanoid/src/Bonus.cpp",
+        "arkanoid/src/HUD.cpp",
+        "-LC:/msys64/ucrt64/lib",
+        "-lsfml-graphics", "-lsfml-window", "-lsfml-system",
+        "-o", "arkanoid.exe"
+      ],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$gcc"
+    }
+  ]
+}
